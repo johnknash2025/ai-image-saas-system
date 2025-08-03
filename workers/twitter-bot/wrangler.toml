@@ -1,0 +1,48 @@
+name = "ai-twitter-bot"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+# KV Namespaces for caching and scheduling
+[[kv_namespaces]]
+binding = "CACHE"
+id = "your-kv-namespace-id"
+preview_id = "your-preview-kv-namespace-id"
+
+[[kv_namespaces]]
+binding = "SCHEDULE"
+id = "your-schedule-kv-namespace-id"
+preview_id = "your-schedule-preview-kv-namespace-id"
+
+# D1 Database for analytics and post history
+[[d1_databases]]
+binding = "DB"
+database_name = "ai-image-saas"
+database_id = "your-d1-database-id"
+
+# R2 Bucket for image access
+[[r2_buckets]]
+binding = "IMAGES"
+bucket_name = "ai-generated-images"
+
+[env.production.vars]
+# Twitter API v2 credentials
+TWITTER_API_KEY = ""
+TWITTER_API_SECRET = ""
+TWITTER_ACCESS_TOKEN = ""
+TWITTER_ACCESS_TOKEN_SECRET = ""
+TWITTER_BEARER_TOKEN = ""
+
+# OpenAI for content optimization
+OPENAI_API_KEY = ""
+
+# Image Generator Worker URL
+IMAGE_GENERATOR_URL = "https://ai-image-generator.your-subdomain.workers.dev"
+
+# Bot settings
+MAX_POSTS_PER_DAY = "10"
+OPTIMAL_POSTING_HOURS = "9,12,18,21" # JST hours
+ENGAGEMENT_THRESHOLD = "5" # Minimum engagement score to post
+
+# Hashtag strategy
+DEFAULT_HASHTAGS = "#AI #AIart #画像生成 #アート"
+MAX_HASHTAGS = "4"

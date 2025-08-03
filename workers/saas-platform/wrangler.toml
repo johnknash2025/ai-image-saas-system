@@ -1,0 +1,38 @@
+name = "ai-saas-platform"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+# KV for user sessions and caching
+[[kv_namespaces]]
+binding = "SESSIONS"
+id = "your-kv-namespace-id"
+preview_id = "your-preview-kv-namespace-id"
+
+# D1 Database for products, users, orders
+[[d1_databases]]
+binding = "DB"
+database_name = "ai-image-saas"
+database_id = "your-d1-database-id"
+
+# R2 Bucket for accessing purchased images
+[[r2_buckets]]
+binding = "IMAGES"
+bucket_name = "ai-generated-images"
+
+[vars]
+# URL of the frontend dashboard
+FRONTEND_URL = "http://localhost:3000"
+# JWT secret for signing user tokens
+JWT_SECRET = "your-development-jwt-secret"
+
+[env.production.vars]
+FRONTEND_URL = "https://your-saas-domain.com"
+JWT_SECRET = "your-production-jwt-secret"
+
+# Stripe API keys
+STRIPE_API_KEY = "sk_test_..."
+STRIPE_WEBHOOK_SECRET = "whsec_..."
+
+# Email service (e.g., for sending receipts)
+# MAILGUN_API_KEY = "..."
+# MAILGUN_DOMAIN = "..."

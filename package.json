@@ -1,0 +1,23 @@
+{
+  "name": "ai-image-saas-system",
+  "version": "1.0.0",
+  "description": "AI Image Generation + Twitter Bot + SaaS Platform",
+  "private": true,
+  "workspaces": [
+    "workers/*",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces",
+    "deploy": "npm run deploy --workspaces",
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0",
+    "@cloudflare/workers-types": "^4.20231218.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

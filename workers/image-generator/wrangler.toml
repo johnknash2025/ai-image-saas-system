@@ -1,0 +1,42 @@
+name = "ai-image-generator"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+# KV Namespaces for caching
+[[kv_namespaces]]
+binding = "CACHE"
+id = "your-kv-namespace-id"
+preview_id = "your-preview-kv-namespace-id"
+
+# D1 Database for storing image metadata
+[[d1_databases]]
+binding = "DB"
+database_name = "ai-image-saas"
+database_id = "your-d1-database-id"
+
+# R2 Bucket for image storage
+[[r2_buckets]]
+binding = "IMAGES"
+bucket_name = "ai-generated-images"
+
+[vars]
+R2_PUBLIC_URL = "https://your-dev-r2-domain.com"
+
+[env.production.vars]
+# R2 Public URL for accessing images
+R2_PUBLIC_URL = "https://your-prod-r2-domain.com"
+
+# OpenAI API
+OPENAI_API_KEY = ""
+
+# Twitter API (for trend analysis)
+TWITTER_BEARER_TOKEN = ""
+
+# Trend analysis settings
+TREND_CHECK_INTERVAL = "3600" # 1 hour in seconds
+MAX_IMAGES_PER_DAY = "50"
+
+# Image generation settings
+DEFAULT_IMAGE_SIZE = "1024x1024"
+DEFAULT_IMAGE_QUALITY = "standard"
+DEFAULT_IMAGE_STYLE = "vivid"
